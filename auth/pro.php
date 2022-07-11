@@ -1,57 +1,55 @@
-<?php 
-// mengaktifkan session pada php
+<?php
 session_start();
- 
-// menghubungkan php dengan koneksi database
-include '../koneksi.php';
- 
-// menangkap data yang dikirim dari form login
-$username = $_POST['username'];
-$password = $_POST['password'];
- 
- 
-// menyeleksi data user dengan username dan password yang sesuai
-$login = mysqli_query($koneksi,"SELECT * FROM tb_user WHERE user='$username' and pass='$password'");
-// menghitung jumlah data yang ditemukan
-$cek = mysqli_num_rows($login);
- 
-// cek apakah username dan password di temukan pada database
-if($cek > 0){
- 
-	$data = mysqli_fetch_assoc($login);
- 
-	// cek jika user login sebagai admin
-	if($data['role']=="admin"){
- 
-		// buat session login dan username
-		$_SESSION['user'] = $username;
-		$_SESSION['role'] = "admin";
-		// alihkan ke halaman dashboard admin
-		header("location:../kepeg");
- 
-	// // cek jika user login sebagai pegawai
-	// }else if($data['role']=="pegawai"){
-	// 	// buat session login dan username
-	// 	$_SESSION['username'] = $username;
-	// 	$_SESSION['role'] = "pegawai";
-	// 	// alihkan ke halaman dashboard pegawai
-	// 	header("location:halaman_pegawai.php");
- 
-	// // cek jika user login sebagai pengurus
-	// }else if($data['role']=="pengurus"){
-	// 	// buat session login dan username
-	// 	$_SESSION['username'] = $username;
-	// 	$_SESSION['role'] = "pengurus";
-	// 	// alihkan ke halaman dashboard pengurus
-	// 	header("location:halaman_pengurus.php");
- 
-	}else{
- 
-		// alihkan ke halaman login kembali
-		header("location:log.php?pesan=gagal");
-	}	
-}else{
-	header("location:log.php?pesan=gagal");
-}
- 
+    include "../koneksi.php";
+    $username = mysqli_real_escape_string($koneksi, $_POST['username']);
+    $password = mysqli_real_escape_string($koneksi,$_POST['password']);
+    $op = $_GET['op'];
+
+    if($op=="in"){
+        $sql = mysqli_query($koneksi, "SELECT * FROM tb_user WHERE user='$username' AND pass='$password'") 
+        or die(mysqli_error($koneksi));
+        $qry = mysqli_fetch_array($sql);
+        if(mysqli_num_rows($sql)==1){
+            if ($qry['status']=="disable") {
+                ?>
+            <script language="JavaScript">
+                alert('Oops! belum aktif!!!!!!!!!!');
+                document.location='log.php';
+            </script>
+            <?php
+                // header("location:log.php");
+            }
+            else if ($qry['status']=="enable") {
+            // $qry = mysqli_fetch_array($sql);
+            $_SESSION['id_user']    = $qry['id_user'];
+            $_SESSION['user']    = $qry['user'];
+            $_SESSION['pass']    = $qry['pass'];
+            $_SESSION['hak_akses']    = $qry['hak_akses'];
+            $_SESSION['status']    = $qry['status'];
+           
+                    if($qry['hak_akses']=="kepeg"){
+                        header("location:../kepeg");
+                    }else if($qry['hak_akses']=="jp"){
+                        header("location:../jp");
+                    }
+                }
+        }
+        else{
+            ?>
+            <script language="JavaScript">
+                alert('Oops! Login Failed. Username & password tidak sesuai ...');
+                document.location='log.php';
+            </script>
+            <?php
+        }
+    }
+    else if($op=="out"){
+        unset($_SESSION['id_user']);
+        unset($_SESSION['nama']);
+        unset($_SESSION['user']);
+        unset($_SESSION['pass']);
+        unset($_SESSION['hak_akses']);
+        header("location:/.");
+    }
+?>
 ?>

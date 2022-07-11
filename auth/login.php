@@ -1,64 +1,69 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-  	<title>Login 08</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Login - SB Admin</title>
+        <link href="../assets/css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="bg-primary">
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                <?php 
 	
-	<link rel="stylesheet" href="../_asset/css/style.css">
+	if(isset($_GET['pesan'])){
+		if($_GET['pesan']=="gagal"){
+			echo "<div class='alert'>Username dan Password tidak sesuai !</div>";
+		}
+	}
+    ?>
 
-	</head>
-	<body>
-	<section class="ftco-section">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Login Dokter</h2>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-md-6 col-lg-5">
-					<div class="login-wrap p-4 p-md-5">
-		      	<div class="icon d-flex align-items-center justify-content-center">
-		      		<span class="fa fa-user-o"></span>
-		      	</div>
-		      	<h3 class="text-center mb-4"><a href="#"> Punya Ya</a></h3>
-					<form action="pro.php" method="post" class="login-form">
-		      		<div class="form-group">
-		      			<input type="text" name="username" class="form-control rounded-left" placeholder="Username" required>
-		      		</div>
-	            <div class="form-group d-flex">
-	              <input type="password" name="password" class="form-control rounded-left" placeholder="Password" required>
-	            </div>
-	            <!-- <div class="form-group d-md-flex">
-	            	<div class="w-50">
-	            		<label class="checkbox-wrap checkbox-primary">Remember Me
-									  <input type="checkbox" checked>
-									  <span class="checkmark"></span>
-									</label>
-								</div>
-								<div class="w-50 text-md-right">
-									<a href="#">Forgot Password</a>
-								</div>
-	            </div> -->
-	            <div class="form-group">
-	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5">Get Started</button>
-	            </div>
-	          </form>
-	        </div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<script src="../_asset/js/jquery.min.js"></script>
-  <script src="../_asset/js/popper.js"></script>
-  <script src="../_asset/js/bootstrap.min.js"></script>
-  <script src="../_asset/js/main.js"></script>
-
-	</body>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-body">
+                                        <form action="pro.php?op=in" method="post">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" name="username" type="text" placeholder="Usernamemu" />
+                                                <label for="inputEmail">Usernamemu</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputPassword" type="password"name="password"  placeholder="Password" />
+                                                <label for="inputPassword">Password</label>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                            <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <div id="layoutAuthentication_footer">
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
+                            <div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../assets/js/scripts.js"></script>
+    </body>
 </html>
-

@@ -17,9 +17,9 @@ include_once "../koneksi.php";
            session_start();
  
 	// cek apakah yang mengakses halaman ini sudah login
-	if($_SESSION['role']==""){
+	if($_SESSION['hak_akses']==""){
 		header("location:../auth/log.php?pesan=gagal");
-	}else{
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,12 +47,12 @@ include_once "../koneksi.php";
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?=($_SESSION['role'])?><i class="fas fa-user fa-fw"></i></a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?=($_SESSION['nama'])?><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <!-- <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li> -->
-                        <li><a class="dropdown-item" href="../auth/logout.php">Logout</a></li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -80,10 +80,7 @@ include_once "../koneksi.php";
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Admin <?=($_SESSION['role'])?>
+                        Admin <?=($_SESSION['hak_akses'])?>
                     </div>
                 </nav>
             </div>
-            <?php
-        } 
-        ?>

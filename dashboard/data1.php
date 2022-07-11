@@ -1,7 +1,5 @@
 <?php
-
     include_once "../_header.php";
-
 ?>
 
 <div id="layoutSidenav_content">
@@ -29,13 +27,14 @@
                                         <tr>
                                             <th>Nama</th>
                                             <th>Nomor</th>
+                                            <th>Judul</th>
                                             <th>File</th>
-                                            <th>Wkt Upload</th>
+                                            <th>Aksi</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <?php
-                                    $sql = mysqli_query($koneksi, "SELECT * FROM tb_data1") or die (mysqli_error($koneksi));
+                                    $sql = mysqli_query($koneksi, "SELECT * FROM kepeg") or die (mysqli_error($koneksi));
 
                                     while($data = mysqli_fetch_array($sql)){
                                     ?>
@@ -43,20 +42,16 @@
                                         <tr>
                                             <td><?php echo $data['nama']; ?></td>
                                             <td><?php echo $data['nomor']; ?></td>
+                                            <td><?php echo $data['Judul']; ?></td>
                                             <td><?php echo $data['file']; ?></td>
-                                            <td><?php echo $data['time']; ?></td>
-                                            <td><a href="preview.php?id=<?php echo $data['id_data1'];?>" class="btn btn-primary btn-sm" >Preview</a>
-                                            <a href="hps.php?id=<?php echo $data['id_data1'];?>" onclick="return confirm('Yakin Hapus?')" class="btn btn-danger btn-sm" >Hapus</a></td>
-                                            
+                                            <td><a href="preview.php?id=<?php echo $data['id_kepeg'];?>" class="btn btn-primary btn-sm" >Preview</a></td>
+                                            <td><a href="hps.php?id=<?php echo $data['id_kepeg'];?>" onclick="return confirm('Yakin Hapus?')" class="btn btn-danger btn-sm" >Hapus</a></td>
                                         </tr>
                                         <?php
                                 }
                                 ?>
                                     </tbody>
                                 </table>
-                                <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                    <a class="btn btn-primary" href="upload.php">Upload Data</a>
-                                </div>
                             </div>
                         </div>
                     </div>
