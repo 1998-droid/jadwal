@@ -33,16 +33,13 @@
                                         </tr>
                                     </thead>
                                     <?php
-                                    $sql = mysqli_query($koneksi, "SELECT * FROM tb_data1") or die (mysqli_error($koneksi));
+                                    $sql = mysqli_query($koneksi, "SELECT * FROM berita WHERE YEAR(DATE) = YEAR(NOW()) AND MONTH(DATE) = MONTH(NOW()) AND DAY(DATE) = DAY(NOW())") or die (mysqli_error($koneksi));
 
                                     while($data = mysqli_fetch_array($sql)){
                                     ?>
                                     <tbody>
                                         <tr>
                                             <td><?php echo $data['nama']; ?></td>
-                                            <td><?php echo $data['nomor']; ?></td>
-                                            <td><?php echo $data['file']; ?></td>
-                                            <td><?php echo $data['time']; ?></td>
                                             <td><a href="preview.php?id=<?php echo $data['id_data1'];?>" class="btn btn-primary btn-sm" >Preview</a></td>
                                             
                                         </tr>
