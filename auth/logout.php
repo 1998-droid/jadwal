@@ -1,4 +1,4 @@
 <?
 session_destroy();
  
-header("Location: auth");
+header("Location: login.php");

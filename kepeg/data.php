@@ -28,23 +28,22 @@
                                     <thead>
                                         <tr>
                                             <th>Nama</th>
-                                            <th>Nomor</th>
-                                            <th>File</th>
-                                            <th>Wkt Upload</th>
+                                            <th>NIP</th>
+                                            <th>Hari</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <?php
-                                    $sql = mysqli_query($koneksi, "SELECT * FROM tb_data1") or die (mysqli_error($koneksi));
+                                    $sql = mysqli_query($koneksi, "SELECT * FROM td_doc") or die (mysqli_error($koneksi));
 
                                     while($data = mysqli_fetch_array($sql)){
                                     ?>
                                     <tbody>
                                         <tr>
                                             <td><?php echo $data['nama']; ?></td>
-                                            <td><?php echo $data['nomor']; ?></td>
-                                            <td><?php echo $data['file']; ?></td>
-                                            <td><?php echo $data['time']; ?></td>
+                                            <td><?php echo $data['nip']; ?></td>
+                                            <td><?php echo $data['hari']; ?></td>
+                                            <td><?php echo $data['hari']; ?></td>
                                             <td><a href="preview.php?id=<?php echo $data['id_data1'];?>" class="btn btn-primary btn-sm" >Preview</a>
                                             <a href="hps.php?id=<?php echo $data['id_data1'];?>" onclick="return confirm('Yakin Hapus?')" class="btn btn-danger btn-sm" >Hapus</a></td>
                                             
