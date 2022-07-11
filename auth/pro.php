@@ -11,7 +11,7 @@ $password = $_POST['pass'];
  
  
 // menyeleksi data user dengan username dan password yang sesuai
-$login = mysqli_query($koneksi,"SELECT * from tb_user where user='$username' and pass='$password'");
+$login = mysqli_query($koneksi,"SELECT * FROM tb_user WHERE user='$username' and pass='$password'");
 // menghitung jumlah data yang ditemukan
 $cek = mysqli_num_rows($login);
  
@@ -21,12 +21,12 @@ if($cek > 0){
 	$data = mysqli_fetch_assoc($login);
  
 	// cek jika user login sebagai admin
-	if($data['hak_akses']=="kepeg"){
+	if($data['role']=="admin"){
  
 		// buat session login dan username
 		$_SESSION['user'] = $username;
-		$_SESSION['role'] = "kepeg";
-        $_SESSION['nama']    = $data['nama'];
+		$_SESSION['role'] = "admin";
+        $_SESSION['nama']    = $data['user'];
 		// alihkan ke halaman dashboard admin
 		header("location:../kepeg");
  
