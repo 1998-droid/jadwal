@@ -6,8 +6,8 @@ session_start();
 include '../koneksi.php';
  
 // menangkap data yang dikirim dari form login
-$username = $_POST['user'];
-$password = $_POST['pass'];
+$username = $_POST['username'];
+$password = $_POST['password'];
  
  
 // menyeleksi data user dengan username dan password yang sesuai
@@ -26,33 +26,32 @@ if($cek > 0){
 		// buat session login dan username
 		$_SESSION['user'] = $username;
 		$_SESSION['role'] = "admin";
-        $_SESSION['nama']    = $data['user'];
 		// alihkan ke halaman dashboard admin
 		header("location:../kepeg");
  
-	// cek jika user login sebagai pegawai
-	}else if($data['role']=="pegawai"){
-		// buat session login dan username
-		$_SESSION['user'] = $username;
-		$_SESSION['role'] = "pegawai";
-		// alihkan ke halaman dashboard pegawai
-		header("location:halaman_pegawai.php");
+	// // cek jika user login sebagai pegawai
+	// }else if($data['role']=="pegawai"){
+	// 	// buat session login dan username
+	// 	$_SESSION['username'] = $username;
+	// 	$_SESSION['role'] = "pegawai";
+	// 	// alihkan ke halaman dashboard pegawai
+	// 	header("location:halaman_pegawai.php");
  
-	// cek jika user login sebagai pengurus
-	}else if($data['role']=="pengurus"){
-		// buat session login dan username
-		$_SESSION['user'] = $username;
-		$_SESSION['role'] = "pengurus";
-		// alihkan ke halaman dashboard pengurus
-		header("location:halaman_pengurus.php");
+	// // cek jika user login sebagai pengurus
+	// }else if($data['role']=="pengurus"){
+	// 	// buat session login dan username
+	// 	$_SESSION['username'] = $username;
+	// 	$_SESSION['role'] = "pengurus";
+	// 	// alihkan ke halaman dashboard pengurus
+	// 	header("location:halaman_pengurus.php");
  
 	}else{
  
 		// alihkan ke halaman login kembali
-		header("location:index.php?pesan=gagal");
+		header("location:log.php?pesan=gagal");
 	}	
 }else{
-	header("location:index.php?pesan=gagal");
+	header("location:log.php?pesan=gagal");
 }
  
 ?>

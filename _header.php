@@ -17,7 +17,7 @@ include_once "../koneksi.php";
            session_start();
  
 	// cek apakah yang mengakses halaman ini sudah login
-	if($_SESSION['hak_akses']==""){
+	if($_SESSION['role']==""){
 		header("location:../auth/log.php?pesan=gagal");
 	}
 ?>

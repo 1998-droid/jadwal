@@ -28,10 +28,10 @@
 		      	<h3 class="text-center mb-4"><a href="#"> Punya Ya</a></h3>
 					<form action="pro.php" method="post" class="login-form">
 		      		<div class="form-group">
-		      			<input type="text" name="user" class="form-control rounded-left" placeholder="Username" required>
+		      			<input type="text" name="username" class="form-control rounded-left" placeholder="Username" required>
 		      		</div>
 	            <div class="form-group d-flex">
-	              <input type="password" name="pass" class="form-control rounded-left" placeholder="Password" required>
+	              <input type="password" name="password" class="form-control rounded-left" placeholder="Password" required>
 	            </div>
 	            <!-- <div class="form-group d-md-flex">
 	            	<div class="w-50">
