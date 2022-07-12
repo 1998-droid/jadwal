@@ -30,12 +30,11 @@
                                             <th>Nama</th>
                                             <th>Nomor</th>
                                             <th>File</th>
-                                            <th>Wkt Upload</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <?php
-                                    $sql = mysqli_query($koneksi, "SELECT * FROM tb_data1") or die (mysqli_error($koneksi));
+                                    $sql = mysqli_query($koneksi, "SELECT * FROM tb_dokter") or die (mysqli_error($koneksi));
 
                                     while($data = mysqli_fetch_array($sql)){
                                     ?>
@@ -44,9 +43,10 @@
                                             <td><?php echo $data['nama']; ?></td>
                                             <td><?php echo $data['nip']; ?></td>
                                             <td><?php echo $data['jadwal']; ?></td>
-                                            <td><a href="preview.php?id=<?php echo $data['id_data1'];?>" class="btn btn-primary btn-sm" >Preview</a>
-                                            <a href="hps.php?id=<?php echo $data['id_data1'];?>" onclick="return confirm('Yakin Hapus?')" class="btn btn-danger btn-sm" >Hapus</a></td>
-                                            
+                                            <center>
+                                            <td><a href="preview.php?id=<?php echo $data['id_dokter'];?>" class="btn btn-primary btn-sm" >Preview</a>
+                                            <a href="hps.php?id=<?php echo $data['id_dokter'];?>" onclick="return confirm('Yakin Hapus?')" class="btn btn-danger btn-sm" >Hapus</a></td>
+                                            </center>
                                         </tr>
                                         <?php
                                 }
