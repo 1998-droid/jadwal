@@ -17,9 +17,9 @@ include_once "../koneksi.php";
            session_start();
  
 	// cek apakah yang mengakses halaman ini sudah login
-	if($_SESSION['hak_akses']==""){
-		header("location:../auth/log.php?pesan=gagal");
-	}
+	// if($_SESSION['hak_akses']==""){
+	// 	header("location:../auth/log.php?pesan=gagal");
+	// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
