@@ -1,5 +1,16 @@
 <?php
     include_once "../_header.php";
+
+
+    //menampilkan data siswa berdasarkan siswaID
+      $id=$_GET['id'];
+      $sql=mysqli_query($koneksi, "SELECT * FROM tb_dokter WHERE id_dokter='$id'") or die (mysqli_error($koneksi));;
+      $data=mysqli_fetch_array($sql);
+      //data hobi dari tabel siswa 
+      $hari=explode(',', $data['jadwal']);
+      
+       
+
 ?>
 <div id="layoutSidenav_content">
                 <main>
@@ -14,13 +25,14 @@
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" name="nama" id="inputFirstName" type="text"  placeholder="Nama File"/>
+                                                        <input class="form-control" name="id" id="inputFirstName" type="hidden" value="<?=$data['id_dokter']?>"  placeholder="Nama File"/>
+                                                        <input class="form-control" name="nama" id="inputFirstName" type="text" value="<?=$data['nama']?>"  placeholder="Nama File"/>
                                                         <label for="inputFirstName">Nama File</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating">
-                                                        <input class="form-control" name="nomor" id="inputLastName" type="text"  placeholder="Nomor File"/>
+                                                        <input class="form-control" name="nomor" id="inputLastName" type="text" value="<?=$data['nip']?>" placeholder="Nomor File"/>
                                                         <label for="inputLastName">Nomor</label>
                                                     </div>
                                                 </div>
@@ -28,25 +40,26 @@
                                                 <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>Pilih Hari : </label>
-                                                    <input type="checkbox" name="jdwl[]" value="senin" id="color_red" />
+                                                    <input type="checkbox" name="jdwl[]" value="senin" <?php in_array ('senin', $hari) ? print "checked" : ""; ?> id="color_red" />
                                                     <label for="color_red">Senin</label>
-                                                    <input type="checkbox" name="jdwl[]" value="selasa" id="color_green" />
+                                                    <input type="checkbox" name="jdwl[]" value="selasa" <?php in_array ('selasa', $hari) ? print "checked" : ""; ?>  id="color_green" />
                                                     <label for="color_red">Selasa</label>
-                                                    <input type="checkbox" name="jdwl[]" value="rabu" id="color_blue" />
+                                                    <input type="checkbox" name="jdwl[]" value="rabu" <?php in_array ('rabu', $hari) ? print "checked" : ""; ?>  id="color_blue" />
                                                     <label for="color_red">Rabu</label>
-                                                    <input type="checkbox" name="jdwl[]" value="kamis" id="color_red" />
+                                                    <input type="checkbox" name="jdwl[]" value="kamis" <?php in_array ('kamis', $hari) ? print "checked" : ""; ?>  id="color_red" />
                                                     <label for="color_red">Kamis</label>
-                                                    <input type="checkbox" name="jdwl[]" value="jumat" id="color_green" />
+                                                    <input type="checkbox" name="jdwl[]" value="jumat" <?php in_array ('jumat', $hari) ? print "checked" : ""; ?>  id="color_green" />
                                                     <label for="color_red">Jum'at</label>
-                                                    <input type="checkbox" name="jdwl[]" value="sabtu" id="color_blue" />
+                                                    <input type="checkbox" name="jdwl[]" value="sabtu" <?php in_array ('sabtu', 
+                                                    $hari) ? print "checked" : ""; ?>  id="color_blue" />
                                                     <label for="color_red">Sabtu</label>
                                                 </div>
                                                 </div>
                                             <div class="mt-4 mb-0">
                                                 <div class="d-flex align-items-center justify-content-between">
-                                                <button class="w-100 btn btn-primary btn-lg" value="simpan" type="submit">
-              Kirim
-            </button>6
+                                                <button class="w-100 btn btn-primary btn-lg" value="edit" type="submit">
+                                                Kirim
+                                                </button>
                                                 </div>
                                             </div>
                                         </form>

@@ -29,7 +29,6 @@
                                         <tr>
                                             <th>Nama</th>
                                             <th>Nomor</th>
-                                            <th>File</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -44,7 +43,7 @@
                                             <td><?php echo $data['nip']; ?></td>
                                             <td><?php echo $data['jadwal']; ?></td>
                                             <center>
-                                            <td><a href="preview.php?id=<?php echo $data['id_dokter'];?>" class="btn btn-primary btn-sm" >Preview</a>
+                                            <td><a href="edit.php?id=<?php echo $data['id_dokter'];?>" class="btn btn-primary btn-sm" >Edit</a>
                                             <a href="hps.php?id=<?php echo $data['id_dokter'];?>" onclick="return confirm('Yakin Hapus?')" class="btn btn-danger btn-sm" >Hapus</a></td>
                                             </center>
                                         </tr>
