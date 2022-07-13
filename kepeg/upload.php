@@ -25,10 +25,23 @@
                                                     </div>
                                                 </div>
                                                 </div>
-                                            <div class="col-md-4">
-                                                <input class="form-control" name="file" id="file" type="file" />
-                                                <label for="file"></label>
-                                            </div>
+                                                <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Pilih Hari : </label>
+                                                    <input type="checkbox" name="jdwl[]" value="senin" id="color_red" />
+                                                    <label for="color_red">Senin</label>
+                                                    <input type="checkbox" name="jdwl[]" value="selasa" id="color_green" />
+                                                    <label for="color_red">Selasa</label>
+                                                    <input type="checkbox" name="jdwl[]" value="rabu" id="color_blue" />
+                                                    <label for="color_red">Rabu</label>
+                                                    <input type="checkbox" name="jdwl[]" value="kamis" id="color_red" />
+                                                    <label for="color_red">Kamis</label>
+                                                    <input type="checkbox" name="jdwl[]" value="jumat" id="color_green" />
+                                                    <label for="color_red">Jum'at</label>
+                                                    <input type="checkbox" name="jdwl[]" value="sabtu" id="color_blue" />
+                                                    <label for="color_red">Sabtu</label>
+                                                </div>
+                                                </div>
                                             <div class="mt-4 mb-0">
                                                 <div class="d-flex align-items-center justify-content-between">
                                                 <button class="w-100 btn btn-primary btn-lg" type="submit">
