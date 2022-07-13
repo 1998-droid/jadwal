@@ -21,7 +21,7 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Upload File</h3></div>
                                     <div class="card-body">
-                                        <form action="pro.php" method="post" enctype="multipart/form-data">
+                                        <form action="pro_date.php" method="post" enctype="multipart/form-data">
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
@@ -50,8 +50,7 @@
                                                     <label for="color_red">Kamis</label>
                                                     <input type="checkbox" name="jdwl[]" value="jumat" <?php in_array ('jumat', $hari) ? print "checked" : ""; ?>  id="color_green" />
                                                     <label for="color_red">Jum'at</label>
-                                                    <input type="checkbox" name="jdwl[]" value="sabtu" <?php in_array ('sabtu', 
-                                                    $hari) ? print "checked" : ""; ?>  id="color_blue" />
+                                                    <input type="checkbox" name="jdwl[]" value="sabtu" <?php in_array ('sabtu', $hari) ? print "checked" : ""; ?>  id="color_blue" />
                                                     <label for="color_red">Sabtu</label>
                                                 </div>
                                                 </div>
