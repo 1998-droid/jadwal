@@ -15,13 +15,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
                                                         <input class="form-control" name="nama" id="inputFirstName" type="text"  placeholder="Nama File"/>
-                                                        <label for="inputFirstName">Nama File</label>
+                                                        <label for="inputFirstName">Nama Dokter</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 mb-3 mb-md-0">
                                                     <div class="form-floating">
                                                         <input class="form-control" name="nomor" id="inputLastName" type="text"  placeholder="Nomor File"/>
-                                                        <label for="inputLastName">Nomor</label>
+                                                        <label for="inputLastName">NIP Dokter</label>
                                                     </div>
                                                 </div>
                                                 </div>
@@ -42,11 +42,20 @@
                                                     <label for="color_red">Sabtu</label>
                                                 </div>
                                                 </div>
+                                                <div class="col-sm-6">
+                                                <div class="form-group">
+                                                <label>Pilih Shift : </label>
+                                                    <input type="checkbox" name="shift[]" value="pagi" id="color_red" />
+                                                    <label for="color_red">Pagi</label>
+                                                    <input type="checkbox" name="shift[]" value="siang" id="color_green" />
+                                                    <label for="color_red">siang</label>
+                                                    <input type="checkbox" name="shift[]" value="malam" id="color_blue" />
+                                                    <label for="color_red">Malam</label>
                                             <div class="mt-4 mb-0">
                                                 <div class="d-flex align-items-center justify-content-between">
                                                 <button class="w-100 btn btn-primary btn-lg" value="simpan" type="submit">
-              Kirim
-            </button>6
+                                                    Kirim
+                                                </button>
                                                 </div>
                                             </div>
                                         </form>
